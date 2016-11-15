@@ -1,0 +1,6 @@
+# Galera-specific configuration 
+[mysqld] 
+wsrep-node-name = "db01" 
+wsrep-new-cluster 
+wsrep-sst-receive-address = 192.168.1.101 
+wsrep-node-incoming-address = 192.168.1.101
