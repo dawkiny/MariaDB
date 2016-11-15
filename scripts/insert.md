@@ -3,14 +3,14 @@
 ## Insert from csv
 
 If the schema is the same between csv and the target table:
-```mariadb
+```sql
 LOAD DATA LOCAL INFILE "filePath" 
 INTO TABLE dbName.tableName 
 FIELDS TERMINATED BY ",";
 ```
 
 If csv is huge:
-```mariadb
+```sql
 ALTER TABLE dbName.tableName DISABLE KEYS;
 LOAD DATA local INFILE "filePath" 
 INTO TABLE dbName.tableName FIELDS TERMINATED BY ",";
@@ -18,7 +18,7 @@ ALTER TABLE dbName.tableName ENABLE KEYS;
 ```
 
 If the schemas are different:
-```mariadb
+```sql
 LOAD DATA LOCAL INFILE 'file_name'
 INTO TABLE table_name
 FIELDS TERMINATED BY ','
