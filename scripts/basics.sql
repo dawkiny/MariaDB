@@ -1,1 +1,6 @@
-CREATE DATABASE aaa;
+CREATE DATABASE ydb;
+
+CREATE TABLE listup
+(
+id varchar(50) NOT NULL DEFAULT '' COMMENT 'id' 
+)
