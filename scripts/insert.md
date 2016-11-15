@@ -3,7 +3,7 @@
 ## Insert from csv
 
 If the schema is the same between csv and the target table:
-```sql
+```mysql
 LOAD DATA LOCAL INFILE "filePath" 
 INTO TABLE dbName.tableName 
 FIELDS TERMINATED BY ",";
