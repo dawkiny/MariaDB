@@ -67,6 +67,13 @@
  * EXECUTE
 
 
+---
+
+```
+http://egloos.zum.com/finetia/v/1626003
+```
+
+---
 Innodb는 delete를 사용한 다음 optimize라는 명령을 실행해줘야 Data가 모두 삭제되고 삭제된 Data만큼의 디스크 용량이 확보.
 ```sql
 OPTIMIZE TABLE [table];
@@ -125,7 +132,11 @@ myisam_sort_buffer_size = 8M
 default-character-set=utf8
 character-set-server=utf8
 collation-server=utf8_general_ci
- 
+```
+
+---
+```
+
 # 쿼리를 캐싱해 놓았다가 똑같은 쿼리가 들어왔을 때 바로 리턴해준다.
 # 0: off 쿼리캐쉬 기능을 사용하지 않음 1: on, select sql_no_cache를 제외하고 쿼리캐쉬사용, 2:demand, select sql_cache 사용시만 쿼리캐쉬 사용
 # show status like 'qcache%';
@@ -182,7 +193,11 @@ write_buffer = 2M
  
 [mysqlhotcopy]
 interactive-timeout
- 
+```
+
+
+---
+```
 =================================================================
  
 튜닝참조
@@ -220,6 +235,10 @@ shell> mysqld_safe -O key_buffer=512k -O sort_buffer=16k -O table_cache=32 -O re
  
 my.cnf - 2
  
+```
+
+---
+```
 출처 :  http://synap.tistory.com/entry/인트라원을-통해서-본-MySQL-튜닝
  
 서버당 파라미터
@@ -300,7 +319,7 @@ log_slow_queries
 long_query_time = 2
 ```
 
-
+---
 ```
 쿼리 캐시 이해 못 하는 것
 
@@ -371,6 +390,11 @@ ON DUPLICATE KEY UPDATE를 안 쓰는 것
 - 5-6% 정도 빠름
 - 데이터 입력이 많다면 더 커질 수 있음
 
+```
+
+
+---
+```
 3. 파티셔닝은 인덱스의 크기를 작게하여 테이블 자체를 효율적으로 작게 나눌 수 있게 된다. 또한, MySQL 5.7.2 DMR에서 상당히 개선된 내부적인 인덱스 잠금(index->lock) 경합(contention)도 줄여 준다.
 
 4. InnoDB의 압축 기능을 사용하자. 몇몇 부하 종류의(특별히 많은 char/varchar/text형 컬럼이있는 경우) 압축 기능은 데이터를 압축해 성능 저하의 곡선을 완만하게 해준다. 또한, 일반적으로 용량이 작은 SSD를 사용해도 된다. InnoDB의 압축 기능은 Facebook에서 제공한 여러가지 패치 덕택에 MySQL 5.6에서는 크게 개선 되었다.
