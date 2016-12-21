@@ -93,6 +93,72 @@ Thanks for using MariaDB!
 sudo mysql -uroot -p
 ```
 
+
+## Standby Test Database
+```sh
+wget https://launchpad.net/test-db/employees-db-1/1.0.6/+download/employees_db-full-1.0.6.tar.bz2
+tar -xjf employees_db-full-1.0.6.tar.bz2 
+cd employees_db
+vi employees.sql        # To set the default Storage Engine
+```
+```sh
+   set storage_engine = InnoDB;
+-- set storage_engine = MyISAM;
+-- set storage_engine = Falcon;
+-- set storage_engine = PBXT;
+-- set storage_engine = Maria;
+```
+
+## Import Database
+
+```sh
+sudo mysql -t < employees.sql
+```
+```sh
++-----------------------------+
+| INFO                        |
++-----------------------------+
+| CREATING DATABASE STRUCTURE |
++-----------------------------+
++------------------------+
+| INFO                   |
++------------------------+
+| storage engine: InnoDB |
++------------------------+
++---------------------+
+| INFO                |
++---------------------+
+| LOADING departments |
++---------------------+
++-------------------+
+| INFO              |
++-------------------+
+| LOADING employees |
++-------------------+
++------------------+
+| INFO             |
++------------------+
+| LOADING dept_emp |
++------------------+
++----------------------+
+| INFO                 |
++----------------------+
+| LOADING dept_manager |
++----------------------+
++----------------+
+| INFO           |
++----------------+
+| LOADING titles |
++----------------+
++------------------+
+| INFO             |
++------------------+
+| LOADING salaries |
++------------------+
+```
+
+
+
 ---
 ## DDL
 
