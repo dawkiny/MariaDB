@@ -19,7 +19,7 @@ vi employees.sql        # To set the default Storage Engine
 ## Import Database
 
 ```sh
-sudo mysql -t < employees.sql
+sudo mysql -umdb -pmdb -t < employees.sql
 ```
 ```sh
 +-----------------------------+
