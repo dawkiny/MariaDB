@@ -111,3 +111,13 @@ GRANT ALL PRIVILEGES ON *.* TO 'mdb';
 
 ```
 
+## Configure `my.cnf`
+
+```sh
+sudo vi /etc/mysql/my.cnf
+```
+
+```sh
+#bind-address      = 127.0.0.1  # disabled by #:
+
+```
